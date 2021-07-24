@@ -17,4 +17,10 @@ def start(updater, context):
 start_handler = CommandHandler('start', start)
 dispatcher.add_handler(start_handler)
 
+#link2file
+def getfile(updater, context):
+	link = ' '.join(context.args)
+	context.bot.send_document(chat_id=updater.effective_chat.id, document=str(link))
+getfile_handler = CommandHandler('get', getfile)
+dispatcher.add_handler(getfile_handler)
 updater.start_polling()
